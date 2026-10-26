@@ -13,7 +13,7 @@ function addMessage(text, type) {
 }
 
 async function send() {
-    const message = input.value;
+    const message = input.value.trim();
     if (!message) return;
 
     addMessage(message, "user");
@@ -43,3 +43,7 @@ async function send() {
         console.error(error);
     }
 }
+
+input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") send();
+});
